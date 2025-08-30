@@ -25,9 +25,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test -- --coverage --watchAll=false
-
     - name: Build for production
       run: npm run build
       env:

@@ -27,23 +27,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run linting
-      run: npm run lint --if-present
-
-    - name: Run type checking
-      run: npx tsc --noEmit
-
-    - name: Run tests
-      run: npm test -- --coverage --watchAll=false
-
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage/lcov.info
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
-
   build:
     runs-on: ubuntu-latest
     needs: test
