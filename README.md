@@ -181,4 +181,6 @@ Citizen SERA aims to:
 https://www.homeaffairs.gov.au/research-and-statistics/statistics/citizenship-statistics
 https://peo.gov.au/understand-our-parliament/how-parliament-works/system-of-government/rights-in-australia
 https://www.aec.gov.au/enrol/new-citizens.htm
+https://dbr.abs.gov.au/region.html?lyr=ste&rgn=1
+
 

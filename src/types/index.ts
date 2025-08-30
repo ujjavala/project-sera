@@ -130,6 +130,104 @@ export interface CitizenshipStatistics {
     average: string;
     current: string;
   };
+  populationDemographics?: {
+    totalPopulation: {
+      year2011: number;
+      year2024: number;
+    };
+    populationDensity: {
+      year2011: number;
+      year2024: number;
+      unit: string;
+    };
+    genderDistribution: {
+      males: {
+        year2011: number;
+        year2024: number;
+      };
+      females: {
+        year2011: number;
+        year2024: number;
+      };
+    };
+    medianAge: {
+      males: {
+        year2011: number;
+        year2024: number;
+      };
+      females: {
+        year2011: number;
+        year2024: number;
+      };
+      overall: {
+        year2011: number;
+        year2024: number;
+      };
+    };
+    workingAgePopulation: {
+      percentage: {
+        year2011: number;
+        year2024: number;
+      };
+      total: {
+        year2011: number;
+        year2024: number;
+      };
+    };
+    birthsAndDeaths: {
+      births: {
+        year2011: number;
+        year2024: number;
+      };
+      deaths: {
+        year2011: number;
+        year2024: number;
+      };
+      fertilityRate: {
+        year2011: number;
+        year2024: number;
+      };
+      deathRate: number;
+    };
+    aboriginalTorresStraitIslander: {
+      population: number;
+      medianAge: number;
+      workingAgePercentage: number;
+      employmentRate: {
+        min: number;
+        max: number;
+      };
+      healthConditionsPercentage: number;
+      homeOwnership: {
+        min: number;
+        max: number;
+      };
+      renters: {
+        min: number;
+        max: number;
+      };
+      homelessness: number;
+      educationAttainment: {
+        min: number;
+        max: number;
+      };
+      employmentEngagement: {
+        min: number;
+        max: number;
+      };
+    };
+    healthIndicators: {
+      alcoholRiskCompliance: number;
+      smokingStatus: number;
+      excellentVeryGoodHealth: number;
+    };
+    governmentSupport: {
+      agePensions: number;
+      servicePensions: number;
+      incomeSupportSupplements: number;
+    };
+    landArea: number;
+  };
 }
 
 export interface AustralianRights {
