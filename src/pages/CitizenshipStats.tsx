@@ -391,7 +391,7 @@ const CitizenshipStats: React.FC = () => {
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                 <User className="w-6 h-6 mr-2 text-primary-500" />
-                Australian Population Demographics (2011-2024)
+                Australian Population Demographics (2011-2024) - NSW
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -487,7 +487,7 @@ const CitizenshipStats: React.FC = () => {
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                 <Heart className="w-6 h-6 mr-2 text-red-500" />
-                Health & Wellbeing Indicators
+                Health & Wellbeing Indicators - NSW
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -518,7 +518,7 @@ const CitizenshipStats: React.FC = () => {
             <div className="bg-gradient-to-r from-red-50 via-yellow-50 to-black-50 rounded-xl shadow-sm p-6 border-2 border-yellow-300 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center">
                 <Flag className="w-6 h-6 mr-2 text-red-600" />
-                Aboriginal and Torres Strait Islander Australians
+                Aboriginal and Torres Strait Islander Australians - NSW
               </h3>
               <p className="text-sm text-gray-600 mb-6">Highlighting the unique characteristics and challenges of Australia's First Peoples</p>
               
