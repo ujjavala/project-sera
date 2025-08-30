@@ -174,22 +174,6 @@ Citizen SERA aims to:
 - **Build stronger communities** through enhanced engagement
 - **Empower marginalized voices** in democratic processes
 
-### 🤝 **Contributing**
-
-We welcome contributions from developers, civic advocates, and community members. Please see our contribution guidelines for more information.
-
-### 📞 **Support**
-
-- **Free Tier**: Community forums and self-help resources
-- **Premium**: Priority email support and live chat
-- **Enterprise**: Dedicated account management and SLA guarantees
-
-### 📜 **License**
-
-This project is proprietary software. All rights reserved.
-
----
-
 **Citizen SERA** - *Empowering every citizen through AI-driven advocacy and civic engagement.*
 
 
