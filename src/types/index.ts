@@ -132,101 +132,40 @@ export interface CitizenshipStatistics {
   };
   populationDemographics?: {
     totalPopulation: {
-      year2011: number;
       year2024: number;
-    };
-    populationDensity: {
-      year2011: number;
-      year2024: number;
-      unit: string;
-    };
-    genderDistribution: {
-      males: {
-        year2011: number;
-        year2024: number;
-      };
-      females: {
-        year2011: number;
-        year2024: number;
-      };
-    };
-    medianAge: {
-      males: {
-        year2011: number;
-        year2024: number;
-      };
-      females: {
-        year2011: number;
-        year2024: number;
-      };
-      overall: {
-        year2011: number;
-        year2024: number;
-      };
     };
     workingAgePopulation: {
-      percentage: {
-        year2011: number;
-        year2024: number;
-      };
-      total: {
-        year2011: number;
-        year2024: number;
-      };
-    };
-    birthsAndDeaths: {
-      births: {
-        year2011: number;
-        year2024: number;
-      };
-      deaths: {
-        year2011: number;
-        year2024: number;
-      };
-      fertilityRate: {
-        year2011: number;
-        year2024: number;
-      };
-      deathRate: number;
+      percentage2023: number;
     };
     aboriginalTorresStraitIslander: {
-      population: number;
-      medianAge: number;
-      workingAgePercentage: number;
-      employmentRate: {
-        min: number;
-        max: number;
-      };
-      healthConditionsPercentage: number;
-      homeOwnership: {
-        min: number;
-        max: number;
-      };
-      renters: {
-        min: number;
-        max: number;
-      };
-      homelessness: number;
-      educationAttainment: {
-        min: number;
-        max: number;
-      };
-      employmentEngagement: {
-        min: number;
-        max: number;
-      };
+      population2021: number;
+      languageSpeakersPercentage: number;
     };
-    healthIndicators: {
-      alcoholRiskCompliance: number;
-      smokingStatus: number;
-      excellentVeryGoodHealth: number;
+    overseasBorn: {
+      total2021: number;
     };
-    governmentSupport: {
-      agePensions: number;
-      servicePensions: number;
-      incomeSupportSupplements: number;
+    employment: {
+      totalJobs2021: number;
     };
-    landArea: number;
+    education: {
+      preschoolEnrollment2023: number;
+    };
+    housing: {
+      medianHousePrice2023: number;
+      medianWeeklyRent2021: number;
+      medianMonthlyMortgage2021: number;
+    };
+    income: {
+      medianTotalIncome2022: number;
+    };
+    business: {
+      totalBusinesses2024: number;
+    };
+    landArea: {
+      total2021: number;
+      protectedLand2022: number;
+      unit: string;
+    };
   };
 }
 

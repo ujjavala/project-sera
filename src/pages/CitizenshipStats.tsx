@@ -13,8 +13,6 @@ import {
   Sparkles,
   Clock,
   User,
-  Baby,
-  Heart,
   Home,
   GraduationCap,
   Briefcase,
@@ -75,101 +73,40 @@ const CitizenshipStats: React.FC = () => {
     },
     populationDemographics: {
       totalPopulation: {
-        year2011: 6083337,
-        year2024: 6443689
-      },
-      populationDensity: {
-        year2011: 1102.6,
-        year2024: 1166.9,
-        unit: 'persons/km²'
-      },
-      genderDistribution: {
-        males: {
-          year2011: 3024887,
-          year2024: 3142979
-        },
-        females: {
-          year2011: 3063450,
-          year2024: 3181746
-        }
-      },
-      medianAge: {
-        males: {
-          year2011: 35.6,
-          year2024: 36.5
-        },
-        females: {
-          year2011: 37.3,
-          year2024: 38.3
-        },
-        overall: {
-          year2011: 36.5,
-          year2024: 37.4
-        }
+        year2024: 27194369
       },
       workingAgePopulation: {
-        percentage: {
-          year2011: 66.0,
-          year2024: 66.8
-        },
-        total: {
-          year2011: 4036425,
-          year2024: 4206694
-        }
-      },
-      birthsAndDeaths: {
-        births: {
-          year2011: 83830,
-          year2024: 69881
-        },
-        deaths: {
-          year2011: 35199,
-          year2024: 42634
-        },
-        fertilityRate: {
-          year2011: 1.72,
-          year2024: 1.58
-        },
-        deathRate: 5.1
+        percentage2023: 64.9
       },
       aboriginalTorresStraitIslander: {
-        population: 164433,
-        medianAge: 23.5,
-        workingAgePercentage: 61.6,
-        employmentRate: {
-          min: 52,
-          max: 58
-        },
-        healthConditionsPercentage: 71.9,
-        homeOwnership: {
-          min: 42,
-          max: 43
-        },
-        renters: {
-          min: 55,
-          max: 56
-        },
-        homelessness: 1284,
-        educationAttainment: {
-          min: 43,
-          max: 58
-        },
-        employmentEngagement: {
-          min: 62,
-          max: 64
-        }
+        population2021: 983709,
+        languageSpeakersPercentage: 10
       },
-      healthIndicators: {
-        alcoholRiskCompliance: 78,
-        smokingStatus: 71,
-        excellentVeryGoodHealth: 49
+      overseasBorn: {
+        total2021: 7029262
       },
-      governmentSupport: {
-        agePensions: 344,
-        servicePensions: 11710,
-        incomeSupportSupplements: 3880
+      employment: {
+        totalJobs2021: 20797175
       },
-      landArea: 552190.6
+      education: {
+        preschoolEnrollment2023: 337305
+      },
+      housing: {
+        medianHousePrice2023: 730000,
+        medianWeeklyRent2021: 375,
+        medianMonthlyMortgage2021: 1863
+      },
+      income: {
+        medianTotalIncome2022: 55062
+      },
+      business: {
+        totalBusinesses2024: 2662998
+      },
+      landArea: {
+        total2021: 768809493.8,
+        protectedLand2022: 169668198,
+        unit: 'hectares'
+      }
     }
   };
 
@@ -391,7 +328,7 @@ const CitizenshipStats: React.FC = () => {
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                 <User className="w-6 h-6 mr-2 text-primary-500" />
-                Australian Population Demographics (2011-2024) - NSW
+                Australian Population Demographics (2024)
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -400,116 +337,108 @@ const CitizenshipStats: React.FC = () => {
                   <div className="text-2xl font-bold text-primary-800">
                     {(citizenshipData.populationDemographics.totalPopulation.year2024 / 1000000).toFixed(1)}M
                   </div>
-                  <div className="text-xs text-primary-600">
-                    +{(citizenshipData.populationDemographics.totalPopulation.year2024 - citizenshipData.populationDemographics.totalPopulation.year2011).toLocaleString()} since 2011
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-accent-50 to-accent-100 rounded-lg p-4">
-                  <div className="text-sm text-accent-700 mb-1">Population Density</div>
-                  <div className="text-2xl font-bold text-accent-800">
-                    {citizenshipData.populationDemographics.populationDensity.year2024}
-                  </div>
-                  <div className="text-xs text-accent-600">{citizenshipData.populationDemographics.populationDensity.unit}</div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4">
-                  <div className="text-sm text-blue-700 mb-1">Median Age</div>
-                  <div className="text-2xl font-bold text-blue-800">
-                    {citizenshipData.populationDemographics.medianAge.overall.year2024} years
-                  </div>
-                  <div className="text-xs text-blue-600">
-                    +{(citizenshipData.populationDemographics.medianAge.overall.year2024 - citizenshipData.populationDemographics.medianAge.overall.year2011).toFixed(1)} since 2011
-                  </div>
+                  <div className="text-xs text-primary-600">2024 estimate</div>
                 </div>
                 
                 <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4">
-                  <div className="text-sm text-green-700 mb-1">Working Age</div>
+                  <div className="text-sm text-green-700 mb-1">Working Age (15-64)</div>
                   <div className="text-2xl font-bold text-green-800">
-                    {citizenshipData.populationDemographics.workingAgePopulation.percentage.year2024}%
+                    {citizenshipData.populationDemographics.workingAgePopulation.percentage2023}%
                   </div>
-                  <div className="text-xs text-green-600">15-64 years</div>
+                  <div className="text-xs text-green-600">2023 data</div>
                 </div>
-              </div>
-              
-              {/* Gender Distribution */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                    <Users className="w-5 h-5 mr-2 text-blue-500" />
-                    Gender Distribution (2024)
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Males</span>
-                      <span className="text-sm font-semibold text-gray-900">
-                        {citizenshipData.populationDemographics.genderDistribution.males.year2024.toLocaleString()} 
-                        ({(citizenshipData.populationDemographics.genderDistribution.males.year2024 / citizenshipData.populationDemographics.totalPopulation.year2024 * 100).toFixed(1)}%)
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Females</span>
-                      <span className="text-sm font-semibold text-gray-900">
-                        {citizenshipData.populationDemographics.genderDistribution.females.year2024.toLocaleString()}
-                        ({(citizenshipData.populationDemographics.genderDistribution.females.year2024 / citizenshipData.populationDemographics.totalPopulation.year2024 * 100).toFixed(1)}%)
-                      </span>
-                    </div>
+                
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4">
+                  <div className="text-sm text-blue-700 mb-1">Born Overseas</div>
+                  <div className="text-2xl font-bold text-blue-800">
+                    {(citizenshipData.populationDemographics.overseasBorn.total2021 / 1000000).toFixed(1)}M
+                  </div>
+                  <div className="text-xs text-blue-600">
+                    {(citizenshipData.populationDemographics.overseasBorn.total2021 / citizenshipData.populationDemographics.totalPopulation.year2024 * 100).toFixed(1)}% of population
                   </div>
                 </div>
                 
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                    <Baby className="w-5 h-5 mr-2 text-pink-500" />
-                    Birth & Fertility Trends
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Births (2024)</span>
-                      <span className="text-sm font-semibold text-gray-900">
-                        {citizenshipData.populationDemographics.birthsAndDeaths.births.year2024.toLocaleString()}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Fertility Rate</span>
-                      <span className="text-sm font-semibold text-gray-900">
-                        {citizenshipData.populationDemographics.birthsAndDeaths.fertilityRate.year2024}
-                      </span>
-                    </div>
-                    <div className="text-xs text-gray-500 mt-2">
-                      Decline of {(citizenshipData.populationDemographics.birthsAndDeaths.births.year2011 - citizenshipData.populationDemographics.birthsAndDeaths.births.year2024).toLocaleString()} births since 2011
-                    </div>
+                <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-4">
+                  <div className="text-sm text-purple-700 mb-1">Total Jobs</div>
+                  <div className="text-2xl font-bold text-purple-800">
+                    {(citizenshipData.populationDemographics.employment.totalJobs2021 / 1000000).toFixed(1)}M
                   </div>
+                  <div className="text-xs text-purple-600">2021 data</div>
                 </div>
               </div>
             </div>
 
-            {/* Health and Wellbeing */}
+            {/* Economic Indicators */}
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <Heart className="w-6 h-6 mr-2 text-red-500" />
-                Health & Wellbeing Indicators - NSW
+                <Briefcase className="w-6 h-6 mr-2 text-green-500" />
+                Economic & Business Indicators
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-green-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-green-600 mb-2">
-                    {citizenshipData.populationDemographics.healthIndicators.alcoholRiskCompliance}%
+                    ${citizenshipData.populationDemographics.income.medianTotalIncome2022.toLocaleString()}
                   </div>
-                  <div className="text-sm text-green-800">Do not exceed lifetime alcohol risk guidelines</div>
+                  <div className="text-sm text-green-800">Median Total Income (2022)</div>
+                  <div className="text-xs text-green-600 mt-1">Excluding government pensions</div>
                 </div>
                 
                 <div className="bg-blue-50 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">
-                    {citizenshipData.populationDemographics.healthIndicators.smokingStatus}%
+                    {(citizenshipData.populationDemographics.business.totalBusinesses2024 / 1000000).toFixed(2)}M
                   </div>
-                  <div className="text-sm text-blue-800">Ex-smokers or never smoked</div>
+                  <div className="text-sm text-blue-800">Total Businesses (2024)</div>
                 </div>
                 
-                <div className="bg-purple-50 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">
-                    {citizenshipData.populationDemographics.healthIndicators.excellentVeryGoodHealth}%
+                <div className="bg-orange-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">
+                    {citizenshipData.populationDemographics.education.preschoolEnrollment2023.toLocaleString()}
                   </div>
-                  <div className="text-sm text-purple-800">Report excellent or very good health</div>
+                  <div className="text-sm text-orange-800">Preschool Enrollment (2023)</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Housing Market */}
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <Home className="w-6 h-6 mr-2 text-red-500" />
+                Housing Market Indicators
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-red-50 rounded-lg p-4">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl font-bold text-red-600">
+                      ${(citizenshipData.populationDemographics.housing.medianHousePrice2023 / 1000).toFixed(0)}k
+                    </div>
+                    <div className="text-sm text-red-800">Median House Price (2023)</div>
+                  </div>
+                </div>
+                
+                <div className="bg-yellow-50 rounded-lg p-4">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl font-bold text-yellow-600">
+                      ${citizenshipData.populationDemographics.housing.medianWeeklyRent2021}
+                    </div>
+                    <div className="text-sm text-yellow-800">Median Weekly Rent (2021)</div>
+                  </div>
+                  <div className="text-xs text-yellow-700 text-center">
+                    ${(citizenshipData.populationDemographics.housing.medianWeeklyRent2021 * 52).toLocaleString()}/year
+                  </div>
+                </div>
+                
+                <div className="bg-indigo-50 rounded-lg p-4">
+                  <div className="text-center mb-3">
+                    <div className="text-3xl font-bold text-indigo-600">
+                      ${citizenshipData.populationDemographics.housing.medianMonthlyMortgage2021.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-indigo-800">Median Monthly Mortgage (2021)</div>
+                  </div>
+                  <div className="text-xs text-indigo-700 text-center">
+                    ${(citizenshipData.populationDemographics.housing.medianMonthlyMortgage2021 * 12).toLocaleString()}/year
+                  </div>
                 </div>
               </div>
             </div>
@@ -518,129 +447,87 @@ const CitizenshipStats: React.FC = () => {
             <div className="bg-gradient-to-r from-red-50 via-yellow-50 to-black-50 rounded-xl shadow-sm p-6 border-2 border-yellow-300 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center">
                 <Flag className="w-6 h-6 mr-2 text-red-600" />
-                Aboriginal and Torres Strait Islander Australians - NSW
+                Aboriginal and Torres Strait Islander Australians
               </h3>
-              <p className="text-sm text-gray-600 mb-6">Highlighting the unique characteristics and challenges of Australia's First Peoples</p>
+              <p className="text-sm text-gray-600 mb-6">National statistics for Australia's First Peoples (2021 Census)</p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Left Column - Demographics */}
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <Users className="w-5 h-5 mr-2 text-red-500" />
-                      Population Overview
-                    </h4>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-2xl font-bold text-red-600">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.population.toLocaleString()}
-                        </div>
-                        <div className="text-xs text-gray-600">Total Population</div>
+                <div className="bg-white rounded-lg p-4 border border-yellow-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <Users className="w-5 h-5 mr-2 text-red-500" />
+                    Population Overview
+                  </h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-2xl font-bold text-red-600">
+                        {(citizenshipData.populationDemographics.aboriginalTorresStraitIslander.population2021 / 1000).toFixed(0)}k
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold text-red-600">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.medianAge}
-                        </div>
-                        <div className="text-xs text-gray-600">Median Age (years)</div>
-                      </div>
+                      <div className="text-xs text-gray-600">Total Population (2021)</div>
                     </div>
-                    <div className="mt-3 p-2 bg-yellow-50 rounded text-xs text-gray-700">
-                      <strong>Note:</strong> Significantly younger than general population (37.4 years)
-                    </div>
-                  </div>
-
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <Briefcase className="w-5 h-5 mr-2 text-blue-500" />
-                      Employment & Education
-                    </h4>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Working Age</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.workingAgePercentage}%
-                        </span>
+                    <div>
+                      <div className="text-2xl font-bold text-red-600">
+                        {(citizenshipData.populationDemographics.aboriginalTorresStraitIslander.population2021 / citizenshipData.populationDemographics.totalPopulation.year2024 * 100).toFixed(1)}%
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Employment Rate</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.employmentRate.min}%-{citizenshipData.populationDemographics.aboriginalTorresStraitIslander.employmentRate.max}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Employment Engagement (15-64)</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.employmentEngagement.min}%-{citizenshipData.populationDemographics.aboriginalTorresStraitIslander.employmentEngagement.max}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Education Attainment (20-34)</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.educationAttainment.min}%-{citizenshipData.populationDemographics.aboriginalTorresStraitIslander.educationAttainment.max}%
-                        </span>
-                      </div>
+                      <div className="text-xs text-gray-600">Of Total Population</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Right Column - Health & Housing */}
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <Heart className="w-5 h-5 mr-2 text-purple-500" />
-                      Health Outcomes
-                    </h4>
-                    <div className="text-center mb-4">
-                      <div className="text-3xl font-bold text-purple-600 mb-1">
-                        {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.healthConditionsPercentage}%
-                      </div>
-                      <div className="text-sm text-purple-700">Report one or more long-term health conditions</div>
+                <div className="bg-white rounded-lg p-4 border border-yellow-200">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <GraduationCap className="w-5 h-5 mr-2 text-blue-500" />
+                    Language & Culture
+                  </h4>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-600 mb-1">
+                      {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.languageSpeakersPercentage}%
                     </div>
-                    <div className="text-xs text-gray-600 bg-purple-50 p-2 rounded">
-                      This is significantly higher than the national average, highlighting ongoing health disparities
-                    </div>
+                    <div className="text-sm text-blue-700">Speak an Aboriginal or Torres Strait Islander language</div>
                   </div>
-
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <Home className="w-5 h-5 mr-2 text-green-500" />
-                      Housing Situation
-                    </h4>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Home Ownership</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.homeOwnership.min}%-{citizenshipData.populationDemographics.aboriginalTorresStraitIslander.homeOwnership.max}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Renters</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.renters.min}%-{citizenshipData.populationDemographics.aboriginalTorresStraitIslander.renters.max}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Homelessness</span>
-                        <span className="text-sm font-semibold text-gray-900">
-                          {citizenshipData.populationDemographics.aboriginalTorresStraitIslander.homelessness.toLocaleString()} individuals
-                        </span>
-                      </div>
-                    </div>
-                    <div className="mt-3 text-xs text-gray-600 bg-orange-50 p-2 rounded">
-                      Housing stress remains a critical issue requiring targeted policy intervention
-                    </div>
+                  <div className="text-xs text-gray-600 bg-blue-50 p-2 rounded mt-3">
+                    Approximately {Math.round(citizenshipData.populationDemographics.aboriginalTorresStraitIslander.population2021 * citizenshipData.populationDemographics.aboriginalTorresStraitIslander.languageSpeakersPercentage / 100).toLocaleString()} people maintain traditional languages
                   </div>
                 </div>
               </div>
               
               <div className="mt-6 p-4 bg-gradient-to-r from-red-100 via-yellow-100 to-black-100 rounded-lg border border-yellow-300">
                 <div className="text-center">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Key Disparities</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Cultural Heritage</h4>
                   <p className="text-sm text-gray-700">
-                    These statistics highlight persistent disparities in age structure, employment, health, education, and housing 
-                    compared with the broader Australian population. Addressing these gaps remains a critical priority for 
-                    achieving equality and justice for Australia's First Peoples.
+                    Australia's Aboriginal and Torres Strait Islander peoples represent the world's oldest continuous cultures, 
+                    with over 65,000 years of history. The preservation of traditional languages and cultural practices 
+                    remains vital for maintaining this rich heritage.
                   </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Land Area Statistics */}
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <Activity className="w-6 h-6 mr-2 text-green-500" />
+                Land & Environment
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-green-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-green-600 mb-2">
+                    {(citizenshipData.populationDemographics.landArea.total2021 / 1000000).toFixed(0)}M
+                  </div>
+                  <div className="text-sm text-green-800">Total Land Area</div>
+                  <div className="text-xs text-green-600 mt-1">
+                    {citizenshipData.populationDemographics.landArea.total2021.toLocaleString()} {citizenshipData.populationDemographics.landArea.unit}
+                  </div>
+                </div>
+                
+                <div className="bg-blue-50 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    {(citizenshipData.populationDemographics.landArea.protectedLand2022 / citizenshipData.populationDemographics.landArea.total2021 * 100).toFixed(1)}%
+                  </div>
+                  <div className="text-sm text-blue-800">Protected Land (2022)</div>
+                  <div className="text-xs text-blue-600 mt-1">
+                    {(citizenshipData.populationDemographics.landArea.protectedLand2022 / 1000000).toFixed(0)}M {citizenshipData.populationDemographics.landArea.unit}
+                  </div>
                 </div>
               </div>
             </div>
