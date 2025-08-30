@@ -30,7 +30,6 @@ jobs:
       env:
         CI: false
         NODE_ENV: production
-        PUBLIC_URL: /advoc8ai
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
