@@ -1,0 +1,9 @@
+# Redirects for Single Page Application
+/*    /index.html   200
+
+# API redirects (for future backend integration)
+/api/*  https://api.citizensera.com/:splat  200
+
+# Legacy redirects
+/app/*  /:splat  301
+/old-dashboard  /dashboard  301

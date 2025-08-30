@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: production
+      url: https://ujja.github.io/advoc8ai
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18.x
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm test -- --coverage --watchAll=false
+
+    - name: Build for production
+      run: npm run build
+      env:
+        CI: false
+        NODE_ENV: production
+        PUBLIC_URL: /advoc8ai
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        cname: citizensera.com
+
+    - name: Create deployment status
+      uses: chrnorm/deployment-status@v2
+      with:
+        token: '${{ github.token }}'
+        state: 'success'
+        deployment-id: ${{ steps.deployment.outputs.deployment-id }}
+
+  create-release-notes:
+    runs-on: ubuntu-latest
+    needs: deploy-production
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Generate changelog
+      run: |
+        echo "# Release Notes for ${{ github.ref_name }}" > RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo "## What's New" >> RELEASE_NOTES.md
+        git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD~1)..HEAD >> RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo "## Technical Details" >> RELEASE_NOTES.md
+        echo "- Build: $(date)" >> RELEASE_NOTES.md
+        echo "- Commit: ${{ github.sha }}" >> RELEASE_NOTES.md
+
+    - name: Update release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: RELEASE_NOTES.md
+        files: |
+          TECHNICAL_DESIGN.md
+          API_DESIGN.md
+          AI_ARCHITECTURE.md

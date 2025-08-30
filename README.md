@@ -110,27 +110,59 @@ Builds the app for production to the `build` folder
 
 ```
 src/
-├── contexts/          # React Context providers
-├── pages/            # Main application pages
-│   ├── Dashboard.tsx       # User dashboard
-│   ├── EntitlementFinder.tsx   # Benefits discovery
-│   ├── CivicEducation.tsx      # Learning modules
-│   ├── CommunityEvents.tsx     # Community engagement
-│   ├── Pricing.tsx            # Subscription plans
-│   └── ...
-├── types/            # TypeScript type definitions
-├── App.tsx          # Main application component
-└── index.tsx        # Application entry point
+├── contexts/                    # React Context providers
+│   └── UserContext.tsx         # User state management
+├── pages/                      # Main application pages
+│   ├── Dashboard.tsx           # User dashboard with AI insights
+│   ├── EntitlementFinder.tsx   # AI-powered benefits discovery
+│   ├── CivicEducation.tsx      # Interactive learning modules
+│   ├── CommunityEvents.tsx     # Community engagement platform
+│   ├── AIChat.tsx              # AI assistant interface
+│   ├── Pricing.tsx             # Subscription plans
+│   ├── Login.tsx               # Authentication
+│   ├── Signup.tsx              # User registration
+│   ├── OnboardingFlow.tsx      # New user onboarding
+│   ├── Profile.tsx             # User profile management
+│   ├── CaseDetail.tsx          # Individual case tracking
+│   ├── Forums.tsx              # Community forums
+│   ├── Impact.tsx              # Impact metrics dashboard
+│   ├── CitizenshipStats.tsx    # Australian citizenship data
+│   ├── AustralianRights.tsx    # Rights information
+│   └── modules/                # Educational modules
+│       ├── RightsModule.tsx    # Rights education
+│       ├── VotingModule.tsx    # Voting system education
+│       └── DemocracyModule.tsx # Democratic processes
+├── types/                      # TypeScript type definitions
+│   └── index.ts               # Comprehensive type system
+├── App.tsx                    # Main application component
+└── index.tsx                  # Application entry point
 ```
 
 ### 🛠️ **Technical Stack**
 
+#### Frontend Architecture
 - **Frontend**: React 19 with TypeScript
 - **Styling**: Tailwind CSS with custom design system
 - **Routing**: React Router v7
 - **Icons**: Lucide React
 - **State Management**: React Context API
 - **Build Tool**: Create React App
+
+#### Agentic AI Architecture
+- **AI Agent Framework**: Multi-agent system with specialized AI personas
+- **Natural Language Processing**: Advanced NLP for policy interpretation
+- **Document Processing**: AI-powered form completion and legal document generation
+- **Decision Engine**: Intelligent case routing and escalation
+- **Knowledge Graph**: Dynamic policy and entitlement mapping
+
+#### Backend Services (Planned)
+- **API Gateway**: RESTful and GraphQL endpoints
+- **Authentication**: OAuth 2.0 + JWT with multi-factor authentication
+- **Database**: PostgreSQL with Redis caching
+- **Document Storage**: Encrypted cloud storage with versioning
+- **AI Services**: Integration with OpenAI, Anthropic, and custom models
+- **Queue System**: Redis for background job processing
+- **Monitoring**: Comprehensive logging and analytics
 
 ### 🌍 **Social Impact**
 
