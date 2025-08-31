@@ -9,6 +9,85 @@ The Citizen SERA AI architecture leverages a sophisticated multi-agent system de
 
 #### 2.1 Multi-Agent System Design
 
+```mermaid
+graph TB
+    %% User Interface Layer
+    User[👤 User Interface]
+    
+    %% Agent Orchestration Layer
+    subgraph Orchestration["🎯 Agent Orchestration Layer"]
+        Router[🧭 Agent Router]
+        Context[🧠 Context Manager]
+        State[💾 Conversation State]
+        Balancer[⚖️ Load Balancer]
+        Resolver[🔧 Conflict Resolver]
+        Memory[🗃️ Memory Management]
+    end
+    
+    %% Specialized AI Agents Layer
+    subgraph Agents["🤖 Specialized AI Agents"]
+        Advocacy[🤝 Advocacy Agent<br/>Primary Interface]
+        Policy[📋 Policy Analyst<br/>Agent]
+        Document[📄 Document Processor<br/>Agent]
+        Appeal[⚖️ Appeal Specialist<br/>Agent]
+        Community[👥 Community Moderator<br/>Agent]
+        Translation[🌐 Translation<br/>Agent]
+        Risk[⚠️ Risk Assessment<br/>Agent]
+        Learning[📚 Learning<br/>Agent]
+    end
+    
+    %% Foundation Models Layer
+    subgraph Models["🧠 Foundation Models"]
+        GPT4[🟢 GPT-4 Turbo<br/>Primary]
+        Claude[🔵 Claude 3<br/>Safety]
+        Gemini[🔴 Gemini Pro<br/>Analysis]
+        Custom[🟡 Custom<br/>Models]
+    end
+    
+    %% Knowledge & Data Layer
+    subgraph Knowledge["📚 Knowledge & Data"]
+        KGraph[🕸️ Knowledge Graph]
+        VectorDB[🎯 Vector Database]
+        PolicyDB[📖 Policy Database]
+        UserDB[👤 User Database]
+    end
+    
+    %% External Integrations
+    subgraph External["🌐 External Systems"]
+        GovAPI[🏛️ Government APIs]
+        LegalAid[⚖️ Legal Aid Systems]
+        NGO[🤲 NGO Services]
+    end
+    
+    %% Connections
+    User --> Orchestration
+    Orchestration --> Agents
+    Agents --> Models
+    Agents --> Knowledge
+    Agents --> External
+    
+    %% Internal Agent Communication
+    Advocacy -.-> Policy
+    Policy -.-> Document
+    Document -.-> Appeal
+    Community -.-> Translation
+    Risk -.-> Learning
+    
+    %% Model Distribution
+    Advocacy --> GPT4
+    Policy --> Claude
+    Document --> Gemini
+    Appeal --> GPT4
+    Community --> Custom
+    
+    style User fill:#e1f5fe
+    style Orchestration fill:#f3e5f5
+    style Agents fill:#e8f5e8
+    style Models fill:#fff3e0
+    style Knowledge fill:#fce4ec
+    style External fill:#e0f2f1
+```
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                Agent Orchestration Layer                    │

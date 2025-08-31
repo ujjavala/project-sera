@@ -9,6 +9,138 @@ Citizen SERA is an AI-powered civic advocacy platform that leverages agentic AI 
 
 #### 2.1 High-Level Architecture
 
+```mermaid
+graph TB
+    %% Client Layer
+    subgraph ClientLayer["🎨 Client Layer"]
+        WebFrontend[🌐 React Frontend<br/>TypeScript/PWA]
+        MobileApp[📱 Mobile App<br/>React Native]
+        APIClients[🔌 API Clients<br/>Gov/NGO Systems]
+        AdminPanel[⚙️ Admin Panel<br/>Management Console]
+    end
+    
+    %% CDN and Edge
+    subgraph Edge["🌍 Edge Layer"]
+        CDN[🚀 Content Delivery Network<br/>CloudFront/Azure CDN]
+        EdgeCache[💾 Edge Caching<br/>Static Assets]
+        DDoSProtect[🛡️ DDoS Protection<br/>AWS Shield/Cloudflare]
+    end
+    
+    %% API Gateway
+    subgraph Gateway["🚪 API Gateway Layer"]
+        LoadBalancer[⚖️ Application Load Balancer<br/>Health Checks]
+        Auth[🔐 Authentication Service<br/>JWT/OAuth2/SSO]
+        RateLimit[🚦 Rate Limiting<br/>Redis-based]
+        APIVersion[📋 API Versioning<br/>v1/v2 Management]
+        Monitoring[📊 API Monitoring<br/>Logs/Metrics/Traces]
+        CORS[🌐 CORS Handler<br/>Cross-origin Security]
+    end
+    
+    %% Microservices Layer
+    subgraph Microservices["🔧 Microservices Layer"]
+        UserService[👤 User Service<br/>Profile/Auth Management]
+        AgentHub[🤖 AI Agent Hub<br/>Multi-Agent Orchestration]
+        PolicyEngine[📖 Policy Engine<br/>Rules/Eligibility Logic]
+        CaseService[📋 Case Management<br/>Workflow Automation]
+        DocumentProc[📄 Document Processor<br/>OCR/AI Analysis]
+        ForumService[💬 Forum Service<br/>Community Features]
+        NotifyService[📢 Notification Service<br/>Email/SMS/Push]
+        AnalyticsService[📈 Analytics Service<br/>Business Intelligence]
+        IntegrationService[🔗 Integration Service<br/>External APIs]
+    end
+    
+    %% AI/ML Services
+    subgraph AIServices["🧠 AI/ML Services Layer"]
+        LLMOrchestrator[🎭 LLM Orchestrator<br/>GPT-4/Claude/Gemini]
+        NLPPipeline[📝 NLP Pipeline<br/>Understanding/Generation]
+        VectorSearch[🎯 Vector Search<br/>Semantic Similarity]
+        MLModels[🔬 Custom ML Models<br/>Classification/Prediction]
+        AIMonitoring[🔍 AI Monitoring<br/>Performance/Safety]
+    end
+    
+    %% Message Queue & Communication
+    subgraph Messaging["📨 Messaging Layer"]
+        EventBus[🚌 Event Bus<br/>Apache Kafka]
+        TaskQueue[📋 Task Queue<br/>Celery/Redis]
+        PubSub[📡 Pub/Sub System<br/>Real-time Events]
+        WebSockets[⚡ WebSocket Manager<br/>Live Connections]
+    end
+    
+    %% Data Layer
+    subgraph DataLayer["💾 Data Layer"]
+        PostgresMain[(🐘 PostgreSQL<br/>Primary Database)]
+        RedisCache[(🔴 Redis Cluster<br/>Cache/Sessions)]
+        VectorDB[(🎯 Vector Database<br/>Pinecone/Weaviate)]
+        DocumentStore[(📁 Document Store<br/>S3/Azure Blob)]
+        SearchEngine[(🔍 Elasticsearch<br/>Full-text Search)]
+        MessageQueue[(📨 Message Queue<br/>Redis/RabbitMQ)]
+    end
+    
+    %% External Integrations
+    subgraph External["🌐 External Systems"]
+        GovAPIs[🏛️ Government APIs<br/>Centrelink/ATO/Medicare]
+        LegalAid[⚖️ Legal Aid Systems<br/>Community Legal Centers]
+        PaymentGW[💳 Payment Gateway<br/>Stripe/PayPal]
+        EmailService[📧 Email Service<br/>SendGrid/SES]
+        SMSService[📱 SMS Service<br/>Twilio]
+        IdentityVerify[🆔 Identity Verification<br/>Veriff/Jumio]
+    end
+    
+    %% Infrastructure Layer
+    subgraph Infrastructure["☁️ Infrastructure Layer"]
+        Kubernetes[⚙️ Kubernetes<br/>Container Orchestration]
+        Docker[🐳 Docker<br/>Containerization]
+        Monitoring[📊 Monitoring Stack<br/>Prometheus/Grafana]
+        Logging[📝 Logging Stack<br/>ELK/Fluentd]
+        Backup[💾 Backup Systems<br/>Automated Snapshots]
+        Security[🔒 Security Tools<br/>Vault/Scanner]
+    end
+    
+    %% Connections Flow
+    ClientLayer --> Edge
+    Edge --> Gateway
+    Gateway --> Microservices
+    Microservices --> AIServices
+    Microservices --> Messaging
+    Microservices --> DataLayer
+    Microservices --> External
+    
+    %% Service Mesh Connections
+    UserService -.-> Auth
+    AgentHub -.-> LLMOrchestrator
+    PolicyEngine -.-> VectorSearch
+    CaseService -.-> TaskQueue
+    DocumentProc -.-> MLModels
+    ForumService -.-> EventBus
+    NotifyService -.-> EmailService
+    AnalyticsService -.-> SearchEngine
+    IntegrationService -.-> GovAPIs
+    
+    %% Data Flow
+    UserService --> PostgresMain
+    AgentHub --> RedisCache
+    PolicyEngine --> VectorDB
+    DocumentProc --> DocumentStore
+    ForumService --> PostgresMain
+    AnalyticsService --> SearchEngine
+    
+    %% Infrastructure Connections
+    Microservices --> Kubernetes
+    AIServices --> Docker
+    DataLayer --> Monitoring
+    External --> Security
+    
+    style ClientLayer fill:#e3f2fd
+    style Edge fill:#f1f8e9
+    style Gateway fill:#f3e5f5
+    style Microservices fill:#fff3e0
+    style AIServices fill:#fce4ec
+    style Messaging fill:#e8f5e8
+    style DataLayer fill:#e0f2f1
+    style External fill:#fff8e1
+    style Infrastructure fill:#fafafa
+```
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Client Layer                             │

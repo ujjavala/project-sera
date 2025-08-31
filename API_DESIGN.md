@@ -5,6 +5,108 @@
 
 The Citizen SERA API is built around an agentic AI architecture that provides intelligent, conversational interfaces for civic advocacy. The API follows RESTful principles with GraphQL endpoints for complex queries and real-time WebSocket connections for agent interactions.
 
+#### 1.1 API Architecture Diagram
+
+```mermaid
+graph TB
+    %% Client Applications
+    subgraph Clients["📱 Client Applications"]
+        WebApp[🌐 Web Application<br/>React/TypeScript]
+        MobileApp[📱 Mobile App<br/>React Native]
+        Partners[🤝 Partner Systems<br/>Legal Aid/NGO]
+        GovPortals[🏛️ Government<br/>Portals]
+    end
+    
+    %% API Gateway Layer
+    subgraph Gateway["🚪 API Gateway Layer"]
+        ALB[⚖️ Application<br/>Load Balancer]
+        Auth[🔐 Authentication<br/>JWT/OAuth2]
+        Rate[🚦 Rate Limiting<br/>1000/hr]
+        Monitor[📊 Monitoring<br/>& Logging]
+    end
+    
+    %% Core API Services
+    subgraph CoreAPI["🎯 Core API Services"]
+        REST[🔄 REST API<br/>v1/v2]
+        GraphQL[📊 GraphQL API<br/>Complex Queries]
+        WebSocket[⚡ WebSocket<br/>Real-time Chat]
+        Webhooks[📢 Webhooks<br/>Status Updates]
+    end
+    
+    %% Business Logic Layer
+    subgraph Services["🔧 Microservices"]
+        UserSvc[👤 User Service<br/>Profile Management]
+        AgentSvc[🤖 Agent Service<br/>AI Conversations]
+        CaseSvc[📋 Case Service<br/>Management]
+        PolicySvc[📖 Policy Service<br/>Entitlements]
+        DocSvc[📄 Document Service<br/>Processing]
+        ForumSvc[💬 Forum Service<br/>Community]
+    end
+    
+    %% AI/ML Layer
+    subgraph AI["🧠 AI/ML Layer"]
+        AgentHub[🎭 AI Agent Hub<br/>Multi-Agent System]
+        NLP[📝 NLP Engine<br/>Understanding]
+        DocAI[🔍 Document AI<br/>OCR/Analysis]
+        Analytics[📈 AI Analytics<br/>Insights]
+    end
+    
+    %% Data Layer
+    subgraph Data["💾 Data Layer"]
+        PostgreSQL[(🐘 PostgreSQL<br/>Primary DB)]
+        Redis[(🔴 Redis<br/>Cache/Sessions)]
+        Vector[(🎯 Vector DB<br/>Embeddings)]
+        Files[📁 File Storage<br/>S3/Blob]
+    end
+    
+    %% External Integrations
+    subgraph External["🌐 External Systems"]
+        CentrelinkAPI[🏛️ Centrelink API<br/>Benefits]
+        ATOAPI[💰 ATO API<br/>Tax Services]
+        MedicareAPI[🏥 Medicare API<br/>Healthcare]
+        StateGov[🏢 State Gov<br/>Services]
+        LegalAid[⚖️ Legal Aid<br/>Organizations]
+    end
+    
+    %% Connections
+    Clients --> Gateway
+    Gateway --> CoreAPI
+    CoreAPI --> Services
+    Services --> AI
+    Services --> Data
+    Services --> External
+    
+    %% API Type Distribution
+    WebApp --> REST
+    MobileApp --> REST
+    Partners --> GraphQL
+    GovPortals --> Webhooks
+    
+    %% Real-time Connections
+    WebApp -.-> WebSocket
+    MobileApp -.-> WebSocket
+    
+    %% Service Dependencies
+    AgentSvc --> AgentHub
+    DocSvc --> DocAI
+    PolicySvc --> NLP
+    CaseSvc --> Analytics
+    
+    %% Data Access
+    UserSvc --> PostgreSQL
+    AgentSvc --> Redis
+    PolicySvc --> Vector
+    DocSvc --> Files
+    
+    style Clients fill:#e3f2fd
+    style Gateway fill:#f3e5f5
+    style CoreAPI fill:#e8f5e8
+    style Services fill:#fff3e0
+    style AI fill:#fce4ec
+    style Data fill:#f1f8e9
+    style External fill:#e0f2f1
+```
+
 ### 2. Base Configuration
 
 **Base URL:** `https://api.citizensera.com/v1`
